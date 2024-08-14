@@ -26,7 +26,7 @@ const RecordPage = () => {
   const [sortedData, setSortedData] = useState([]);
   const [sortOption, setSortOption] = useState("recent");
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 4;
+  const itemsPerPage = 3;
 
   useEffect(() => {
     const getRecord = async function () {

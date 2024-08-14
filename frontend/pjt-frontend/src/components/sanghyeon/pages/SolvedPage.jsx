@@ -14,7 +14,7 @@ function SolvedPage() {
   const [sortOption, setSortOption] = useState("recent");
   const [currentPage, setCurrentPage] = useState(1);
   const [currentPageGroup, setCurrentPageGroup] = useState(1);
-  const itemsPerPage = 4;
+  const itemsPerPage = 3;
   const pagesPerGroup = 10;
 
   const { accessToken, setAccessToken, baseURL, memberId, name } = store(
