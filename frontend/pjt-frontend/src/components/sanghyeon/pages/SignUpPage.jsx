@@ -34,7 +34,10 @@ const SignUpPage = () => {
   const idCheckComplete = useRef(false);
   const [passwordMatch, setPasswordMatch] = useState(true);
   const [passwordError, setPasswordError] = useState("");
-  const nameRegex = /^[a-zA-Z0-9]*$/;
+  const [nameError, setNameError] = useState("");
+  
+  // 수정된 닉네임 정규식 (영문자, 한글만 허용)
+  const nameRegex = /^[a-zA-Zㄱ-ㅎㅏ-ㅣ가-힣]+$/;
 
   useEffect(() => {
     const checkPasswordMatch = () => {
@@ -94,6 +97,17 @@ const SignUpPage = () => {
     //   });
     //   return;
     // }
+
+     // 닉네임 유효성 검사 추가
+     if (!nameRegex.test(name.current.value)) {
+      setNameError("닉네임은 영문자, 한글만 입력 가능합니다.");
+      return;
+    } else if (name.current.value.length < 3 || name.current.value.length > 18) {
+      setNameError("닉네임은 3자 이상 18자 이하로 입력해주세요.");
+      return;
+    } else {
+      setNameError("");
+    }
 
     if (userId.current.value.length < 3 || userId.current.value.length > 15) {
       Swal.fire({
@@ -304,6 +318,9 @@ const SignUpPage = () => {
                   label="닉네임"
                   inputRef={name}
                   autoComplete="name"
+                  error={nameError !== ""}
+                  helperText={nameError}
+                
                   sx={{
                     "& .MuiOutlinedInput-root": {
                       "& fieldset": {
