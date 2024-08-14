@@ -8,6 +8,7 @@ import Swal from "sweetalert2";
 import BasicModal from "../tutorial/BasicModal.jsx";
 import Lottie from "lottie-react";
 import rankingAnimation from "../../../public/lottie/ranking.json";
+import helloAnimation from "../../../public/lottie/hello.json";
 import Toast from "../Toast.jsx";
 import { textAlign } from "@mui/system";
 
@@ -90,7 +91,6 @@ function MainPage() {
 
   const defaultMode = {
     description: "튜토리얼을 읽어보세요.",
-    imageUrl: "/characters/movingNyanSlime.gif",
   };
 
   const [hoveredMode, setHoveredMode] = useState(null);
@@ -127,6 +127,8 @@ function MainPage() {
           <div style={styles.lottieContainer}>
             {hoveredMode === "랭킹" ? (
               <Lottie animationData={rankingAnimation} style={styles.lottie} />
+            ) : hoveredMode === null ? (
+              <Lottie animationData={helloAnimation} style={styles.lottie} />
             ) : (
               <img
                 src={
