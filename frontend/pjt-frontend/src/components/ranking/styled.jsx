@@ -4,7 +4,7 @@ const PageBody = styled.div`
   display: flex;
   margin-top: 15px;
   justify-content: center;
-  height: 100vh;
+  height: 90vh;
 `;
 
 
@@ -33,7 +33,7 @@ const RankingInfoSection = styled.div`
   margin-bottom: 20px;
   margin-right: 60px;
   font-size: 1.2em;
-  color: #495057;
+  // color: #495057;
 `;
 
 const RankingListSection = styled.div`

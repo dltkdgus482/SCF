@@ -4,8 +4,6 @@ import useLeaderboardStore from '../../stores/LeaderboardStore.jsx';
 
 const RankingGraph = () => {
   const { rankingList, setRankingList, boardPeriod, setBoardPeriod } = useLeaderboardStore();
-
-
   const PodiumPlayer = ({ rank }) => {
     const player = rankingList[boardPeriod]?.[rank];
     if (!player) {
@@ -13,7 +11,6 @@ const RankingGraph = () => {
     }
     return (
       <>
-        <ProfileImageContainer rank={rank + 1} />
         <P.Name>{player.name}</P.Name>
         <P.Exp>{player.exp}</P.Exp>
       </>
