@@ -90,7 +90,7 @@ function MainPage() {
   };
 
   const defaultMode = {
-    description: "튜토리얼을 읽어보세요.",
+    description: "시작하기 전에 필수 가이드를 확인하세요! \n 튜토리얼이 당신을 도와줄 거예요.",
   };
 
   const [hoveredMode, setHoveredMode] = useState(null);
