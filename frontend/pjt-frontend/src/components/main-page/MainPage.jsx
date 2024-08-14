@@ -6,8 +6,11 @@ import store from "../../store/store.js";
 import SoundStore from "../../stores/SoundStore.jsx";
 import Swal from "sweetalert2";
 import BasicModal from "../tutorial/BasicModal.jsx";
+import Lottie from "lottie-react";
+import rankingAnimation from "../../../public/lottie/ranking.json";
 import Toast from "../Toast.jsx";
 import { textAlign } from "@mui/system";
+
 function MainPage() {
   const {
     baseURL,
@@ -67,6 +70,10 @@ function MainPage() {
   const { playEffectSound } = SoundStore();
 
   const modeDetails = {
+    "스토리모드": {
+      description: "혼자서 학습할 수 있는 스토리모드 입니다.",
+      imageUrl: "/characters/movingIceSlime.gif",
+    },
     "배틀 모드": {
       description: "1 대 1 대결 모드입니다.\n 서로의 실력을 겨뤄보세요.",
       imageUrl: "/characters/movingFireSlime.gif",
@@ -75,14 +82,9 @@ function MainPage() {
       description: "여러 명이 동시에 참여할 수 있는 \n 멀티플레이 모드입니다.",
       imageUrl: "/characters/movingGreenSlime.gif",
     },
-    스토리모드: {
-      description: "혼자서 학습할 수 있는 스토리모드 입니다.",
-      imageUrl: "/characters/movingIceSlime.gif",
-    },
-    랭킹: {
+    "랭킹": {
       description:
         "순위를 겨루는 랭킹 모드입니다. \n 높은 점수를 기록해보세요.",
-      imageUrl: "/characters/movingThunderSlime.gif",
     },
   };
 
@@ -122,20 +124,25 @@ function MainPage() {
           ))}
         </div>
         <div style={styles.description}>
-          <img
-            src={
-              hoveredMode
-                ? modeDetails[hoveredMode].imageUrl
-                : defaultMode.imageUrl
-            }
-            alt={hoveredMode ? hoveredMode : "기본 이미지"}
-            style={styles.image}
-          />
+          <div style={styles.lottieContainer}>
+            {hoveredMode === "랭킹" ? (
+              <Lottie animationData={rankingAnimation} style={styles.lottie} />
+            ) : (
+              <img
+                src={
+                  hoveredMode
+                    ? modeDetails[hoveredMode].imageUrl
+                    : defaultMode.imageUrl
+                }
+                alt={hoveredMode ? hoveredMode : "기본 이미지"}
+                style={styles.image}
+              />
+            )}
+          </div>
           <p>
             {hoveredMode
               ? modeDetails[hoveredMode].description
               : defaultMode.description}
-            {/* hoveredMode가 null일 때만 BasicModal을 보여줌 */}
             {!hoveredMode && (
               <BasicModal
                 title="기본 모드"
@@ -202,6 +209,17 @@ const styles = {
     fontSize: "48px",
     fontWeight: "bold",
     color: "rgba(0, 0, 0, 0.7)",
+  },
+  lottie: {
+    width: "150%",
+    height: "auto",
+  },
+  lottieContainer: {
+    width: "100%",
+    maxWidth: "400px", // 원하는 최대 너비 설정
+    height: "auto",
+    display: "flex",
+    justifyContent: "center",
   },
   toast: {
     position: "fixed",
