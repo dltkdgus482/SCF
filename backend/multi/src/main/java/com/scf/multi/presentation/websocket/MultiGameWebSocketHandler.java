@@ -121,6 +121,12 @@ public class MultiGameWebSocketHandler extends TextWebSocketHandler {
 
         log.debug("roomId: {}", rooms.get(session.getId()));
 
+        boolean isAllPlayerSubmit = multiGameService.checkIsAllPlayerSubmit(roomId); // 게임중 유저가 나갈 경우, 참여한 모든 플레이어가 제출했는지 확인
+
+        if (isAllPlayerSubmit) { // 모든 플레이어가 제출했으면
+            handleRoundCompletion(roomId); // 다음 라운드 진행
+        }
+
         // 마지막 유저가 방을 나간 후 3초 후에 방을 삭제하는 작업을 스케줄링
         Set<WebSocketSession> roomSessions = sessionRooms.get(roomId);
         if (roomSessions == null || roomSessions.isEmpty()) {
