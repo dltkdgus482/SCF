@@ -1,0 +1,471 @@
+.item-outer-outer-container {
+  height: 100vh;
+}
+
+.item-outer-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.item-container {
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(27, 26, 85, 0.85);
+  width: 80vw;
+  max-width: 1200px;
+  border-radius: 20px;
+  height: 73vh;
+  margin: 20px;
+  padding: 30px;
+  margin-top: 50px;
+}
+
+.item-title {
+  margin: 0;
+  padding-left: 40px;
+  color: white;
+  letter-spacing: 2px;
+}
+
+.item-inner-container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  border-radius: 20px;
+  height: 100%;
+  padding: 0px 5%;
+}
+
+.item-left-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 45%;
+}
+
+.item-right-container {
+  display: flex;
+  width: 45%;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.6s ease-out, box-shadow 0.6s ease-out;
+  perspective: 1000px; /* 3D 효과를 위한 원근감 */
+}
+
+.item-character-outer-container {
+  width: 50%;
+  height: 72%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.8);
+  box-shadow: 1px 1px 10px 1px rgba(255, 255, 255, 0.6);
+  border-radius: 20px;
+  padding: 20px;
+}
+
+.item-character-outer-container:hover {
+  transform: rotateX(25deg) rotateY(25deg); /* 마우스 위치에 따른 회전 효과 */
+  box-shadow: 1px 1px 20px 2px rgba(255, 255, 255, 0.8); /* 호버 시 그림자 강조 */
+}
+
+.item-character-inner-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 2.5px solid rgba(0, 0, 0, 0.7);
+  border-radius: 2px;
+}
+
+.item-character-img-container {
+  height: 80%;
+}
+
+.item-character-img-container img {
+  width: 60%;
+  margin-top: 40px;
+}
+
+.item-character-rank-container {
+  width: 100%;
+  height: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.item-character-rank {
+  color: blueviolet;
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+.item-point-container {
+  background-color: rgba(27, 26, 85, 0.85);
+  border-radius: 5px;
+  padding: 20px 10px;
+  width: 60%;
+  text-align: center;
+  margin: 10%;
+}
+
+.item-point {
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+.item-title {
+  color: white;
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+.item-info-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 70%;
+  padding: 15px;
+  border: 0.1px solid white;
+  border-radius: 5px;
+  box-shadow: 1px 1px 10px 1px rgba(255, 255, 255, 0.6);
+  position: relative;
+  overflow: hidden;
+}
+
+.item-info {
+  color: rgba(255, 255, 255, 0.8);
+  margin: 20px 0px;
+}
+
+.item-info-button-container {
+  width: 100%;
+}
+
+.item-info-button-container button {
+  background-color: rgba(27, 26, 85, 0.85);
+  color: white;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  width: 100%;
+}
+
+.item-info-upper-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.item-info-img-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 0.1px solid white;
+  border-radius: 5px;
+  width: 40%;
+}
+
+.item-info-img-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.item-info-title-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 20px;
+  color: white;
+  font-size: 1.2rem;
+}
+
+.item-character-name-container {
+  margin: 0;
+  border: 1.2px solid black;
+  width: 100%;
+  height: 10%;
+  background-color: rgba(255, 255, 255, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.item-character-name {
+  color: black;
+  font-size: 1.5rem;
+  font-weight: bold;
+  letter-spacing: 5px;
+}
+
+.item-character-overlay {
+  position: absolute; /* 절대 위치로 설정 */
+  width: 50%; /* .item-character-outer-container와 같은 너비 */
+  height: 72%; /* .item-character-outer-container와 같은 높이 */
+  border-radius: 20px;
+  top: 50%; /* 부모 컨테이너의 중앙에 맞추기 */
+  left: 50%; /* 부모 컨테이너의 중앙에 맞추기 */
+  transform: translate(-50%, -50%); /* 중앙 정렬을 위한 변환 */
+  z-index: 1001; /* .item-character-outer-container 위에 배치 */
+  padding: 20px;
+
+  background: linear-gradient(
+    105deg,
+    transparent 40%,
+    rgba(255, 219, 112, 0.8) 45%,
+    rgba(132, 50, 255, 0.6) 50%,
+    transparent 54%
+  );
+
+  background-size: 150% 150%;
+  background-position: 100%;
+
+  filter: brightness(1) opacity(0.6);
+  mix-blend-mode: color-dodge;
+  transition: transform 0.3s ease;
+  transition: transform 0.6s ease-out;
+  transition: background-position 0.3s ease, transform 0.3s ease;
+  transition: background-position 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.carousel {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.carousel-inner {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.carousel-item {
+  min-width: 100%;
+  box-sizing: border-box;
+  display: flex; /* Flexbox를 사용하여 가운데 정렬 */
+  flex-direction: column;
+  justify-content: center; /* 수평 가운데 정렬 */
+  align-items: center; /* 수직 가운데 정렬 */
+  padding: 10px 20px; /* 패딩을 추가하여 아이템의 내용이 적당히 떨어지도록 */
+}
+
+.carousel-control {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  border: none;
+  padding: 10px;
+  z-index: 1;
+  opacity: 0; /* 기본적으로 화살표 숨김 */
+  transition: opacity 0.3s ease; /* 부드러운 애니메이션 */
+}
+
+.carousel-control.prev {
+  left: 10px;
+}
+
+.carousel-control.next {
+  right: 10px;
+}
+
+.item-info-container:hover .carousel-control {
+  opacity: 1; /* 호버 시 화살표 보이기 */
+}
+
+/* 카드 뽑을 시 배경 설정 */
+.item-purchase-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  background-color: rgba(0, 0, 0, 1);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.item-purchase-modal {
+  transform: translateY(100%);
+  opacity: 0;
+  animation: slideUp 0.6s ease-out forwards;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  perspective: 1000px; /* 3D 효과를 위해 */
+  width: 320px;
+  height: 550px;
+  border: none;
+  box-shadow: none;
+}
+
+/* -------------------------------------- */
+
+.item-modal-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-radius: 20px;
+  padding: 20px;
+  width: 100%;
+  transition: transform 0.6s ease;
+  transform-style: preserve-3d;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.item-modal-inner-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 2px;
+  border: none; /* 경계선 제거 */
+  box-shadow: none; /* 그림자 제거 */
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.item-purchase-modal {
+  position: relative;
+  perspective: 1000px;
+}
+
+.item-purchase-modal.flipped .item-modal-container {
+  transform: rotateY(180deg);
+}
+
+.item-modal-inner-container {
+  backface-visibility: hidden;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+}
+
+.item-modal-inner-container.front {
+  background-color: rgba(255, 255, 255);
+}
+
+.item-modal-inner-container.back {
+  background-color: rgba(255, 255, 255);
+  transform: rotateY(180deg);
+}
+
+.flip-modal-button {
+  margin-top: 20px;
+  background-color: rgba(27, 26, 85, 0.85);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.item-modal-inner-container-front {
+  border: 8px solid black;
+  width: 79%;
+  height: 88%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.item-modal-inner-container-front p {
+  color: black;
+  font-size: 5rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+.item-modal-inner-container-back {
+  border: 8px solid black;
+  width: 79%;
+  height: 88%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.item-modal-inner-rank-container-back {
+  width: 100%;
+  height: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.item-modal-inner-rank-back {
+  color: grey;
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+.item-modal-inner-img-container-back {
+  height: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.item-modal-inner-img-container-back img {
+  width: 60%;
+}
+.item-modal-inner-name-container-back {
+  margin: 0;
+  border: 1.2px solid black;
+  width: 100%;
+  height: 10%;
+  background-color: rgba(255, 255, 255, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.item-modal-inner-name-back {
+  color: black;
+  font-size: 1.5rem;
+  font-weight: bold;
+  letter-spacing: 5px;
+}

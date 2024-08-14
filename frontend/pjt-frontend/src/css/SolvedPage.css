@@ -1,0 +1,152 @@
+.outer-container {
+  height: 100vh;
+}
+
+.solved-outer-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.solved-container {
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(27, 26, 85, 0.8);
+  width: 80vw;
+  border-radius: 20px;
+  height: 80vh;
+  margin: 20px;
+  margin-top: 50px;
+}
+
+.solved-title-container {
+  display: grid;
+  grid-template-columns: 3fr 6fr 3fr;
+  margin-bottom: 20px;
+}
+
+.solved-title-select-container {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.solved-title-select-container select {
+  width: 100px;
+  height: 30px;
+  border-radius: 5px;
+  border: none;
+  background-color: white;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.solved-title {
+  margin: 0;
+  color: white;
+  letter-spacing: 2px;
+  font-size: 2rem;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.solved-inner-container-outer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 83%;
+}
+
+.solved-inner-container {
+  display: flex;
+  flex-direction: column;
+  width: 95%;
+  border-radius: 5px;
+  height: 100%;
+  min-height: 100%;
+  border: 3px solid #ccc;
+}
+
+.solved-inner-container hr {
+  width: 98%;
+  height: 2px;
+  background-color: #ccc;
+  margin: 10px;
+}
+
+.solved-inner-title {
+  color: white;
+  margin: 5px 50px;
+  margin-top: 15px;
+  font-size: 2rem;
+  letter-spacing: 2px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+  text-align: center;
+}
+
+.solved-inner-title p {
+  flex: 1;
+}
+
+.solved-inner {
+  display: flex;
+  flex-direction: column;
+}
+
+.solved-inner h1 {
+  color: white;
+  text-align: center;
+}
+
+.solved {
+  color: white;
+  margin: 10px 50px;
+  padding: 10px 0px;
+  color: white;
+  background-color: #1b1a55b3;
+  border: 1px solid white;
+  border-radius: 5px;
+  font-size: 1.5rem;
+  letter-spacing: 1px;
+  text-align: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+}
+
+.solved p {
+  flex: 1;
+}
+
+.solved-pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 15px;
+}
+
+.solved-pagination button {
+  background-color: white;
+  color: black;
+  border: none;
+  border-radius: 5px;
+  padding: 1px 5px;
+}
+
+.solved-pagination button.active {
+  background-color: #1b1a55; /* 버튼 배경색을 변경 */
+  color: white; /* 텍스트 색상 변경 */
+  font-weight: bold; /* 글꼴을 굵게 */
+  border: 2px solid white; /* 강조를 위한 테두리 추가 */
+}
+
+.solved-pagination button {
+  margin: 5px;
+  font-size: 1.2rem;
+  width: 30px;
+}

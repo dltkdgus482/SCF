@@ -1,0 +1,162 @@
+.outer-container {
+  height: 100vh;
+}
+
+.record-outer-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.record-container {
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(27, 26, 85, 0.8);
+  width: 80vw;
+  border-radius: 20px;
+  height: 80vh;
+  margin: 20px;
+  margin-top: 50px;
+}
+
+.record-title-container {
+  display: grid;
+  grid-template-columns: 3fr 6fr 3fr;
+  margin-bottom: 20px;
+}
+
+.record-title-container select {
+  width: 100px;
+  height: 30px;
+  border-radius: 5px;
+  border: none;
+  background-color: white;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.record-title {
+  margin: 0;
+  color: white;
+  letter-spacing: 2px;
+  font-size: 2rem;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.record-title-select-container {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.record-inner-container-outer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 83%;
+}
+
+.record-inner-container {
+  display: flex;
+  flex-direction: column;
+  width: 95%;
+  border-radius: 5px;
+  height: 100%;
+  min-height: 100%;
+  border: 3px solid #ccc;
+}
+
+.record-inner-container hr {
+  width: 98%;
+  height: 2px;
+  background-color: #ccc;
+  margin: 10px;
+}
+
+.record-inner-title {
+  color: white;
+  margin: 5px 50px;
+  margin-top: 15px;
+  font-size: 2rem;
+  letter-spacing: 2px;
+  text-align: center;
+  display: grid;
+  grid-template-columns: 2fr 4fr 2fr 2fr;
+  align-items: center;
+}
+
+.record-inner-title p {
+  flex: 1;
+}
+
+.record-inner {
+  display: flex;
+  flex-direction: column;
+}
+
+.record-inner h1 {
+  color: white;
+  text-align: center;
+}
+
+.record {
+  color: white;
+  margin: 10px 50px;
+  padding: 10px 0px;
+  color: white;
+  background-color: #1b1a55b3;
+  border: 1px solid white;
+  border-radius: 5px;
+  font-size: 1.5rem;
+  letter-spacing: 1px;
+  text-align: center;
+  display: grid;
+  grid-template-columns: 2fr 4fr 2fr 2fr;
+  align-items: center;
+}
+
+.record p {
+  flex: 1;
+}
+
+.record-pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.record-pagination button {
+  margin: 0 5px;
+  padding: 10px 15px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #fff;
+  background-color: #6b73ff;
+  border: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.record-pagination button:hover {
+  background-color: #5a63e0;
+  transform: translateY(-2px);
+}
+
+.record-pagination button:active {
+  background-color: #4a52c0;
+  transform: translateY(0);
+}
+
+.record-pagination button.active {
+  background-color: #000dff;
+  color: #fff;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
