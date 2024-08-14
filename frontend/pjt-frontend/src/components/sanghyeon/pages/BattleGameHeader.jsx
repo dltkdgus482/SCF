@@ -69,7 +69,7 @@ const BattleGameHeader = () => {
             navigate("/");
           }}
         >
-          Street Coding Figther
+          Street Coding Fighter
         </div>
         <div className="header-back-button" onClick={quitBattleRoom}>
           <MdOutlineKeyboardBackspace />
