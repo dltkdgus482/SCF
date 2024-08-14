@@ -66,7 +66,7 @@ export default function Ranking() {
       <Header />
       <S.PageBody>
         <S.Container>
-          <h1>{boardPeriod.toUpperCase()} Ranking</h1>
+          <S.Title>{boardPeriod.toUpperCase()} Ranking</S.Title>
           <S.RankingInfoContainer>
             <S.PeriodButton onClick={() => handleTabClick('total')} $isSelected={boardPeriod === 'total'}>
               Total

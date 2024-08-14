@@ -4,18 +4,21 @@ const PageBody = styled.div`
   display: flex;
   margin-top: 15px;
   justify-content: center;
+  height: 100vh;
 `;
+
+
 const Container = styled.div`
   // display : flex;
   text-align: center;
   justify-content: center;
-  background-color: rgba(248, 249, 250, 0.6);
+  background-color: rgba(255, 255, 255, 0.5);
   width: 80vw;
   margin: 20px;
   margin-top: 30px;
   padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 `;
 const FlexContainer = styled.div`
   display: flex;
@@ -73,6 +76,7 @@ const RankingListSection = styled.div`
     );
   }
 `;
+
 const RankingInfoContainer = styled.div`
   display: flex;
   flex-wrap: nowrap;
@@ -80,6 +84,7 @@ const RankingInfoContainer = styled.div`
   align-items: center;
   width: 100%;
   margin-bottom: 20px;
+  gap: 15px; /* 버튼들 간의 간격을 추가 */
 `;
 
 const RankingInfo = styled.div`
@@ -114,17 +119,41 @@ const GraphContainer = styled.div`
 `;
 
 const PeriodButton = styled.button`
-  padding: 10px 20px;
-  margin: 10px;
+  padding: 15px 25px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  letter-spacing: 2px;
+  color: white;
+  background: ${(props) =>
+    props.$isSelected
+      ? 'linear-gradient(135deg, #ff7f50 0%, #ff4500 100%)' // 선택된 경우의 색상
+      : 'linear-gradient(135deg, #6b73ff 0%, #000dff 100%)'}; // 기본 색상
   border: none;
-  border-radius: 8px;
-  // background-color: #007bff;
-  background-color: ${(props) => (props.$isSelected ? '#007bff' : 'gray')};
-  color: #ffffff;
-  font-size: 1em;
+  border-radius: 30px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin: 0 10px; /* 버튼 간 간격 */
+
   &:hover {
-    background-color: #0056b3;
+    background: ${(props) =>
+      props.$isSelected
+        ? 'linear-gradient(135deg, #ff6347 0%, #ff2400 100%)' // 선택된 상태에서의 호버 색상
+        : 'linear-gradient(135deg, #5a63e0 0%, #000ae0 100%)'}; // 일반 상태에서의 호버 색상
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+    transform: translateY(-2px);
   }
+
+  &:active {
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    transform: translateY(0);
+  }
+`;
+
+const Title = styled.h1`
+  color: #ffffff;
+  font-size: 2.5rem;
+  margin-bottom: 20px;
 `;
 
 const S = {
@@ -139,6 +168,7 @@ const S = {
   PeriodButton,
   Container,
   PageBody,
+  Title,
 };
 
 export default S;
