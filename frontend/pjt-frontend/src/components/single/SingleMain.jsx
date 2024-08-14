@@ -34,6 +34,9 @@ export default function SingleMain() {
         });
     };
     getSingleInfo();
+    setTimeout(() => {
+      getSingleInfo();
+    }, 1000);
   }, []);
   return (
     <>
