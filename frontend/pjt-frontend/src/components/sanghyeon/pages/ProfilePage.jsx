@@ -119,16 +119,16 @@ function ProfilePage() {
                 </button>
                 <button
                   className="custom-button"
-                  onClick={() => navigate("/_report")}
-                >
-                  REPORT
-                </button>
-                <button
-                  className="custom-button"
                   onClick={() => navigate("/_solved")}
                 >
                   SOLVED
                 </button>
+                <button
+                className="custom-button"
+                onClick={() => navigate("/_report")}
+              >
+                REPORT
+              </button>
               </div>
             </div>
           </div>

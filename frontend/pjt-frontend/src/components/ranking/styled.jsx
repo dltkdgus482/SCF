@@ -4,7 +4,7 @@ const PageBody = styled.div`
   display: flex;
   margin-top: 15px;
   justify-content: center;
-  height: 90vh;
+  height: 95vh;
 `;
 
 
@@ -19,6 +19,7 @@ const Container = styled.div`
   padding: 20px;
   border-radius: 20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+
 `;
 const FlexContainer = styled.div`
   display: flex;
