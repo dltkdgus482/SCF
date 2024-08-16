@@ -1,0 +1,72 @@
+.fill-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-height: 110%;
+}
+
+.fill-problem {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-height: 80%;
+  min-height: 60%;
+  height: 60%;
+  transition: transform 0.3s ease;
+  z-index: 1;
+  transform: scale(1);
+  position: relative;
+}
+
+/* .fill-problem:hover {
+  z-index: 10000;
+  transform: scale(1.1);
+  transform-origin: center center;
+} */
+
+.fill-choices {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90%;
+  max-height: 35%;
+  font-size: 1.2rem;
+  margin-top: 30px;
+}
+
+.fill-submit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 95%;
+  max-height: 15%;
+}
+
+.dragndrop-game-choice-button:hover {
+  background-color: #3d3ca3; /* 더 밝은 파란색 배경 */
+}
+
+/* 클릭 시 효과 */
+.dragndrop-game-choice-button:active {
+  background-color: #0e0d3b; /* 더 어두운 색 배경 */
+  transform: scale(0.95); /* 살짝 축소 */
+}
+
+.dragndrop-game-choice-button {
+  width: 150px;
+  height: 50px;
+  background-color: #1b1a55b3; /* 어두운 파란색 배경 */
+  color: white;
+  border: 2px solid white;
+  border-radius: 10px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+
+  font-family: "Fira Code", Consolas, "Courier New", Courier, monospace;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.5s ease, transform 0.5s ease;
+  margin-top: 10px;
+}

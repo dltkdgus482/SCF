@@ -1,0 +1,52 @@
+.select-outer-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.select-title {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.round {
+  margin: 0;
+  padding: 0 40px;
+  color: white;
+  letter-spacing: 2px;
+}
+
+.time-container {
+  margin: 0;
+
+  display: flex;
+  flex-direction: row;
+}
+
+.clock {
+  width: 30px;
+  height: 30px;
+}
+
+.select-container {
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(27, 26, 85, 0.7);
+  width: 80vw;
+  max-width: 1200px;
+  border-radius: 20px;
+  height: 70vh;
+  margin: 50px;
+  padding: 30px;
+}
+
+.select-problem-ranking {
+}
+
+.select-problem {
+}
+
+.select-problem-chatting {
+}

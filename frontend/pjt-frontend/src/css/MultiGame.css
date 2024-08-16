@@ -1,0 +1,344 @@
+.multi-game-main {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  height: 96%;
+  padding: 10px 10px;
+}
+
+.multi-game-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 22%;
+  height: 98%;
+  border-radius: 5px;
+  border: 3px solid white;
+  color: white;
+}
+
+.multi-game-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 56%;
+  height: 98%;
+  border-radius: 20px;
+  border-radius: 5px;
+  border: 3px solid white;
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.6);
+}
+
+.multi-game-choice-problem-outer-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100%;
+  height: 100%;
+  max-height: 100%;
+  margin: 10px;
+  overflow: visible;
+}
+
+.multi-game-choice-temp-problem-container {
+  min-width: 95%;
+  width: 95%;
+  max-width: 95%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-left: 15px;
+  margin-top: 20px;
+  transition: transform 0.3s ease;
+}
+
+/* 호버 시 확대 효과 */
+.multi-game-choice-temp-problem-container:hover {
+}
+
+.multi-game-choice-button-new {
+  width: 95%;
+  color: white;
+  background-color: #1b1a55b3;
+  border: 1px solid white;
+  border-radius: 5px;
+  padding: 10px 10px;
+  letter-spacing: 1px;
+  font-size: 1rem;
+  font-weight: bold;
+  margin: 5px 0;
+  text-align: center;
+  font-family: "Fira Code", Consolas, "Courier New", Courier, monospace;
+}
+
+.multi-game-right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 22%;
+  height: 98%;
+  border-radius: 5px;
+  border: 3px solid white;
+  color: white;
+}
+
+.multi-timer {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+  width: 94%;
+  height: 20%;
+  font-size: 400%;
+  color: yellow;
+  border: 2px solid white;
+  margin: 2%;
+}
+
+.multi-rank-table {
+  overflow-y: auto;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  width: 94%;
+  height: 80%;
+  border: 2px solid white;
+  margin: 2%;
+}
+
+/* 스크롤바의 폭 너비 */
+.multi-rank-table::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* 스크롤바 막대 */
+.multi-rank-table::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    to bottom,
+    rgb(148, 226, 148),
+    rgb(72, 129, 199),
+    rgb(229, 141, 229),
+    pink,
+    rgb(228, 103, 103)
+  );
+  border-radius: 10px;
+}
+
+.multi-rank-table::-webkit-scrollbar-track {
+  background: rgba(214, 193, 212, 0.1);
+}
+
+.multi-rank-table::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(
+    to bottom,
+    rgb(148, 226, 148),
+    rgb(72, 129, 199),
+    rgb(229, 141, 229),
+    pink,
+    rgb(228, 103, 103)
+  );
+}
+
+.multi-rank-items {
+  display: grid;
+  grid-template-columns: 1fr 3fr 3fr;
+  justify-items: center;
+  align-items: center;
+  width: 95%;
+  height: 50px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  border: 3px solid white;
+  border-radius: 10px;
+  margin: 1%;
+}
+
+.multi-rank-items h3,
+h4 {
+  justify-self: start;
+  padding: 0px 25px;
+  max-width: 80%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.multi-current-player {
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  width: 95%;
+  height: 50px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  /* border: 3px solid white;
+  border-radius: 10px; */
+  margin: 1%;
+}
+
+.multi-current-player h3 {
+  justify-self: start;
+  padding: 0px 25px;
+  max-width: 80%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.multi-round {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  width: 94%;
+  height: 20%;
+  border: 2px solid white;
+  margin: 2%;
+}
+
+.multi-round p {
+  font-size: 2rem;
+  font-weight: 900;
+}
+
+.multi-message-room {
+  overflow-y: auto;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 94%;
+  height: 80%;
+  border: 2px solid white;
+  margin: 2%;
+}
+
+/* 스크롤바의 폭 너비 */
+.multi-message-room::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* 스크롤바 막대 */
+.multi-message-room::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    to bottom,
+    rgb(148, 226, 148),
+    rgb(72, 129, 199),
+    rgb(229, 141, 229),
+    pink,
+    rgb(228, 103, 103)
+  );
+  border-radius: 10px;
+}
+
+.multi-message-room::-webkit-scrollbar-track {
+  background: rgba(214, 193, 212, 0.1);
+}
+
+.multi-message-room::-webkit-scrollbar-thumb:hover {
+  background-color: #181883;
+}
+
+.result-modal-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30vw;
+  height: 60vh;
+}
+
+.result-modal-container {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.multi-button {
+  width: 120px;
+  height: 50px;
+  background-color: rgba(255, 255, 255, 0.7);
+  font-size: 1.5rem;
+  font-weight: bold;
+  letter-spacing: 2px;
+  cursor: pointer;
+}
+
+.multi-button:hover {
+  background-color: #eee;
+}
+
+.before-start {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 100%;
+  height: 100%;
+  color: black;
+}
+
+.before-start h2 {
+  margin-top: 15%;
+}
+
+.after-start {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  width: 90%;
+  height: 90%;
+  border: 3px solid rgba(255, 255, 255, 0);
+  border-radius: 10px;
+  color: black;
+}
+
+.multi-game-choice-button {
+  width: 150px;
+  height: 50px;
+  background-color: #1b1a55b3; /* 어두운 파란색 배경 */
+  color: white;
+  border: 2px solid white;
+  border-radius: 10px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+
+  font-family: "Fira Code", Consolas, "Courier New", Courier, monospace;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.5s ease, transform 0.5s ease;
+  margin-top: 10px;
+}
+
+.multi-game-choice-button-new.selected {
+  background-color: #3d3ca3; /* 선택된 버튼의 배경색 */
+  transform: translateY(-2px); /* 살짝 위로 올라가는 효과 */
+}
+
+.multi-game-choice-button-new.selected:active {
+  background-color: #0e0d3b; /* 클릭 시 더 어두운 색 */
+  transform: translateY(0); /* 클릭 시 원래 위치로 돌아옴 */
+}
+
+/* 호버 시 효과 */
+.multi-game-choice-button:hover {
+  background-color: #3d3ca3; /* 더 밝은 파란색 배경 */
+}
+
+/* 클릭 시 효과 */
+.multi-game-choice-button:active {
+  background-color: #0e0d3b; /* 더 어두운 색 배경 */
+  transform: scale(0.95); /* 살짝 축소 */
+}

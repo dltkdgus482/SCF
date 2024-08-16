@@ -1,0 +1,44 @@
+@font-face {
+  font-family: "Galmuri11-Bold";
+  font-weight: bold;
+  src: url("../fonts/Galmuri11-Bold.ttf");
+}
+
+.title {
+  font-family: "Galmuri11-Bold";
+  font-size: 4.5rem;
+  margin: 0;
+}
+
+.title-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 70vh;
+  user-select: none;
+}
+
+.start-button-container {
+  display: flex;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.start-button-container.visible {
+  pointer-events: auto;
+}
+
+.start-button {
+  width : 250px;
+  height : 100px;
+  font-family: "Galmuri11-Bold";
+  font-size: 2rem;
+  padding: 10px 20px;
+  margin: 10px;
+  border: none;
+  border-radius: 10px;
+  background-color: #1b1a55;
+  color: white;
+  user-select: none;
+}

@@ -1,0 +1,11 @@
+version: '3'
+services:
+  pjt-frontend:
+    image: zlxldgus123/frontend
+    restart: always
+    networks:
+      - network
+
+networks:
+  network:
+    external: true

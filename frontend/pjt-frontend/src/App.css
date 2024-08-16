@@ -1,0 +1,7 @@
+* {
+  cursor: auto; /* 기본 커서 설정 */
+}
+
+* {
+  cursor: url('/cursor-default.png') 1 1,default;
+}

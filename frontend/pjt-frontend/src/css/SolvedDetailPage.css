@@ -1,0 +1,23 @@
+.solved-detail-entire-container {
+  height: 100vh;
+}
+
+.solved-detail-outer-outer-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.solved-detail-outer-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(27, 26, 85, 0.7);
+  width: 70vw;
+  max-width: 1200px;
+  border-radius: 20px;
+  height: 75vh;
+  margin: 20px;
+  padding: 30px;
+}

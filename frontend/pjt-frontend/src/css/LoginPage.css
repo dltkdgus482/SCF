@@ -1,0 +1,79 @@
+.login-outer-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+}
+
+.login-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.7);
+  width: 50vw;
+  max-width: 500px;
+  border-radius: 20px;
+  /* height: 50vh; */
+}
+
+.login-container input {
+  width: 80%;
+  height: 50px;
+  margin-top: 10px;
+  padding-left: 10px;
+  background-color: rgba(255, 255, 255, 0.7);
+  border: 1px solid #1b1a55;
+  border-radius: 5px;
+}
+
+.login-container button {
+  width: 80%;
+  height: 50px;
+  border-radius: 5px;
+  background-color: #1b1a55;
+  color: white;
+  font-weight: bold;
+  font-size: 1.5rem;
+  margin-top: 20px;
+}
+
+@font-face {
+  font-family: "Galmuri11-Bold";
+  font-weight: bold;
+  src: url("../fonts/Galmuri11-Bold.ttf");
+}
+
+.login-title {
+  font-family: "Galmuri11-Bold";
+  font-size: 4.5rem;
+  margin-top: 50px;
+  margin-bottom: 60px;
+}
+
+.find-and-kakao {
+  margin: 10px;
+}
+
+.find-password {
+  margin: 20px;
+  position: relative;
+  display: inline-block;
+}
+
+.find-password::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  display: block;
+  background: #1b1a55; /* 밑줄 색상 */
+  transition: width 0.3s;
+  left: 0;
+  bottom: -5px; /* 텍스트 아래 공간 */
+}
+
+.find-password:hover::after {
+  width: 100%;
+}
