@@ -1,0 +1,224 @@
+version: '3'
+services:
+  zookeeper:
+    image: confluentinc/cp-zookeeper:latest
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 2181
+      ZOOKEEPER_TICK_TIME: 2000
+    networks:
+      - network
+
+  kafka:
+    image: confluentinc/cp-kafka:latest
+    environment:
+      KAFKA_BROKER_ID: 1
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+    depends_on:
+      - zookeeper
+    networks:
+      - network
+
+  mariadb-user:
+    image: mariadb:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: member_db
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+    networks:
+      - network
+    depends_on:
+      - kafka  
+    volumes:
+      - db_data_member:/var/lib/mysql
+
+  mariadb-problem:
+    image: mariadb:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: problem_db
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+    networks:
+      - network
+    volumes:
+      - db_data_problem:/var/lib/mysql
+
+  mariadb-edu:
+    image: mariadb:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: edu_db
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+    networks:
+      - network
+    depends_on:
+      - kafka  
+    volumes:
+      - db_data_edu:/var/lib/mysql
+
+  redis-user:
+    image: redis:latest
+    volumes:
+      - ./config/redis.conf:/usr/local/etc/redis/redis.conf  # 로컬의 redis.conf 파일을 컨테이너에 복사
+      - redis_data:/data  # Redis 데이터를 저장할 볼륨
+    command: [ "redis-server", "/usr/local/etc/redis/redis.conf" ]  # 커스텀 설정 파일을 사용해 Redis 시작
+    networks:
+      - network
+
+  user-server:
+    image: zlxldgus123/user
+    depends_on:
+      - mariadb-user
+      - redis-user
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mariadb://mariadb-user:3306/member_db?characterEncoding=utf8mb4
+      SPRING_DATASOURCE_USERNAME: user
+      SPRING_DATASOURCE_PASSWORD: password
+      SPRING_DATA_REDIS_HOST: redis-user
+      SPRING_DATA_REDIS_PORT: 6379
+      JWT_SECRET: 7d1b1d6d36d8e6a8f1bda6a7f473f87b012b0345a1b5f
+      JWT_ACCESS_TOKEN_EXPIRY: 3600000
+      JWT_REFRESH_TOKEN_EXPIRY: 86400000
+      LOGGING_LEVEL_ORG_HIBERNATE_SQL: debug
+      LOGGING_LEVEL_COM_SCF_USER_GLOBAL_LOGINFILTER: debug
+      SERVER_ERROR_INCLUDE_MESSAGE: always
+      SERVER_ERROR_INCLUDE_BINDING_ERRORS: always
+    networks:
+      - network
+
+  problem-server:
+    image: zlxldgus123/problem
+    depends_on:
+      - mariadb-problem
+      - redis-user
+      - user-server
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mariadb://mariadb-problem:3306/problem_db?characterEncoding=utf8mb4
+      SPRING_DATASOURCE_USERNAME: user
+      SPRING_DATASOURCE_PASSWORD: password
+      SPRING_DATA_REDIS_HOST: redis-user
+      SPRING_DATA_REDIS_PORT: 6379
+      JWT_SECRET: 0yZ6aRLZ2zXFR83xzIAtC25OQRXqsUEHtaTZYLLUsQU=
+      JWT_ACCESS_TOKEN_EXPIRY: 3600000
+      JWT_REFRESH_TOKEN_EXPIRY: 86400000
+      LOGGING_LEVEL_ORG_HIBERNATE_SQL: debug
+      LOGGING_LEVEL_COM_SCF_USER_GLOBAL_LOGINFILTER: debug
+      SERVER_ERROR_INCLUDE_MESSAGE: always
+      SERVER_ERROR_INCLUDE_BINDING_ERRORS: always
+    networks:
+      - network
+
+  multi-server:
+    image: zlxldgus123/multi
+    depends_on:
+      - kafka
+      - problem-server
+    environment:
+      SPRING_KAFKA_BOOTSTRAP_SERVERS: kafka:9092
+      SPRING_KAFKA_PRODUCER_KEY_SERIALIZER: org.apache.kafka.common.serialization.StringSerializer
+      SPRING_KAFKA_PRODUCER_VALUE_SERIALIZER: org.springframework.kafka.support.serializer.JsonSerializer
+      SPRING_KAFKA_PRODUCER_PROPERTIES_ACKS: all
+      SPRING_KAFKA_PRODUCER_PROPERTIES_RETRIES: 3
+      SPRING_KAFKA_PRODUCER_PROPERTIES_COMPRESSION_TYPE: gzip
+      SPRING_KAFKA_PRODUCER_PROPERTIES_BATCH_SIZE: 16384
+      SPRING_KAFKA_PRODUCER_PROPERTIES_LINGER_MS: 1
+      LOGGING_LEVEL_ORG_HIBERNATE_SQL: debug
+      LOGGING_LEVEL_COM_SCF_USER_GLOBAL_LOGINFILTER: debug
+      SERVER_ERROR_INCLUDE_MESSAGE: always
+      SERVER_ERROR_INCLUDE_BINDING_ERRORS: always
+      SPRING_APPLICATION_NAME: scf-multi
+      PROBLEM_SERVER_URL: http://www.ssafy11s.com/problem
+      USER_SERVER_URL: http://www.ssafy11s.com/user
+    networks:
+      - network
+
+  rank-server:
+    image: zlxldgus123/rank
+    depends_on:
+      - redis-user
+      - kafka
+      - multi-server
+    environment:
+      SPRING_KAFKA_BOOTSTRAP_SERVERS: kafka:9092
+      SPRING_KAFKA_CONSUMER_GROUP_ID: ranking-group
+      SPRING_KAFKA_CONSUMER_AUTO_OFFSET_RESET: earliest
+      SPRING_KAFKA_CONSUMER_ENABLE_AUTO_COMMIT: 'false'
+      SPRING_KAFKA_PRODUCER_KEY_SERIALIZER: org.apache.kafka.common.serialization.StringSerializer
+      SPRING_KAFKA_PRODUCER_VALUE_SERIALIZER: org.apache.kafka.common.serialization.StringSerializer
+      SPRING_KAFKA_LISTENER_ACK_MODE: manual
+      SPRING_APPLICATION_NAME: scf-rank
+      SPRING_DATA_REDIS_PORT: 6379
+      SPRING_DATA_REDIS_HOST: redis-user
+      LOGGING_LEVEL_ORG_HIBERNATE_SQL: debug
+      SERVER_ERROR_INCLUDE_MESSAGE: always
+      SERVER_ERROR_INCLUDE_BINDING_ERRORS: always
+    networks:
+      - network
+
+  battle-server:
+    image: zlxldgus123/battle
+    depends_on:
+      - kafka
+      - rank-server
+    environment:
+      SPRING_KAFKA_BOOTSTRAP_SERVERS: kafka:9092
+      SPRING_KAFKA_PRODUCER_KEY_SERIALIZER: org.apache.kafka.common.serialization.StringSerializer
+      SPRING_KAFKA_PRODUCER_VALUE_SERIALIZER: org.springframework.kafka.support.serializer.JsonSerializer
+      SPRING_KAFKA_PRODUCER_PROPERTIES_ACKS: all
+      SPRING_KAFKA_PRODUCER_PROPERTIES_RETRIES: 3
+      SPRING_KAFKA_PRODUCER_PROPERTIES_COMPRESSION_TYPE: gzip
+      SPRING_KAFKA_PRODUCER_PROPERTIES_BATCH_SIZE: 16384
+      SPRING_KAFKA_PRODUCER_PROPERTIES_LINGER_MS: 1
+      LOGGING_LEVEL_ORG_HIBERNATE_SQL: debug
+      SERVER_ERROR_INCLUDE_MESSAGE: always
+      SERVER_ERROR_INCLUDE_BINDING_ERRORS: always
+      SPRING_APPLICATION_NAME: scf-battle
+      PROBLEM_SERVER_URL: http://www.ssafy11s.com/problem
+      USER_SERVER_URL: http://www.ssafy11s.com/user/public/charaterType
+    networks:
+      - network
+
+  chat-server:
+    image: zlxldgus123/chat
+    depends_on:
+      - rank-server
+      - battle-server
+    environment:
+      LOGGING_LEVEL_ORG_HIBERNATE_SQL: debug
+      SPRING_APPLICATION_NAME: scf-chat
+      SPRING_DATASOURCE_URL: jdbc:mariadb://mariadb-user:3306/member_db?characterEncoding=utf8mb4
+      SPRING_DATASOURCE_USERNAME: user
+      SPRING_DATASOURCE_PASSWORD: password
+    networks:
+      - network
+
+  single-server:
+    image: zlxldgus123/single
+    depends_on:
+      - mariadb-edu
+      - chat-server
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mariadb://mariadb-edu:3306/edu_db?characterEncoding=utf8mb4
+      SPRING_DATASOURCE_USERNAME: user
+      SPRING_DATASOURCE_PASSWORD: password
+      LOGGING_LEVEL_ORG_HIBERNATE_SQL: debug
+      LOGGING_LEVEL_COM_SCF_USER_GLOBAL_LOGINFILTER: debug
+      SERVER_ERROR_INCLUDE_MESSAGE: always
+      SERVER_ERROR_INCLUDE_BINDING_ERRORS: always
+    networks:
+      - network
+
+networks:
+  network:
+    external: true
+    driver: bridge
+
+volumes:
+  db_data_member:
+  db_data_problem:
+  db_data_edu:
+  redis_data:

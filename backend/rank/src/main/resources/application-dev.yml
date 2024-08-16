@@ -1,0 +1,30 @@
+spring:
+
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+      group-id: ranking-group
+      auto-offset-reset: earliest
+      enable-auto-commit: false
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+    listener:
+      ack-mode: manual
+
+  application:
+    name: scf-rank
+
+  data:
+   redis:
+    host: redis-user
+    port: 6379
+
+logging:
+  level:
+    org:
+      hibernate:
+        SQL: debug
+
+server:
+  port: 8083

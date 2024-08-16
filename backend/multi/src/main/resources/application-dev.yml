@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: scf-multi
+  web:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+
+logging:
+  level:
+    com.scf.multi: DEBUG
+
+problem:
+  server:
+    url: http://www.ssafy11s.com/problem
+
+user:
+  server:
+    url: http://www.ssafy11s.com/user
+
+server:
+  port: 8082

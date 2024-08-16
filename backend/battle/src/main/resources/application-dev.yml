@@ -1,0 +1,36 @@
+spring:
+  application:
+    name: scf-battle
+
+  kafka:
+    bootstrap-servers: localhost:9092
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+      properties:
+        acks: all
+        retries: 3
+        compression-type: gzip
+        batch-size: 16384
+        linger.ms: 1
+
+  web:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+
+logging:
+  level:
+    org.hibernate.SQL: debug
+
+problem:
+  server:
+    url: http://www.ssafy11s.com/problem
+
+user:
+  server:
+    url: http://www.ssafy11s.com/user/public/charaterType
+
+server:
+  port: 8084

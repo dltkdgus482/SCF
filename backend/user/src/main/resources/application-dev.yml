@@ -1,0 +1,30 @@
+spring:
+  application:
+    name: scf-user
+  datasource:
+    url: ${SPRING_DATASOURCE_URL}
+    username: ${SPRING_DATASOURCE_USERNAME}
+    password: ${SPRING_DATASOURCE_PASSWORD}
+    driver-class-name: org.mariadb.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true  # Shows SQL statements in the console
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MariaDBDialect
+  data:
+    redis:
+      host: redis-user
+      port: 6379
+  jwt:
+    secret: ${JWT_SECRET}
+    access-token-expiry: ${JWT_ACCESS_TOKEN_EXPIRY}
+    refresh-token-expiry: ${JWT_REFRESH_TOKEN_EXPIRY}
+
+logging:
+  level:
+    org:
+      hibernate:
+        SQL: debug
