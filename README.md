@@ -96,16 +96,12 @@ Street Coding Fighter는 프로그래밍을 게임처럼 배우는 실시간 참
 
 - **Frontend**
 
-  ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
-  ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
-  ![JavaScript](https://img.shields.io/badge/javascript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
   ![React](https://img.shields.io/badge/react-61DAFB?style=for-the-badge&logo=react&logoColor=black)
   ![Zustand](https://img.shields.io/badge/zustand-7C3AED?style=for-the-badge&logo=zustand&logoColor=white)
-  ![React Router](https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white)
   ![MUI](https://img.shields.io/badge/MUI-007FFF?style=for-the-badge&logo=mui&logoColor=white)
   ![Styled Components](https://img.shields.io/badge/styled_components-DB7093?style=for-the-badge&logo=styled-components&logoColor=white)
   ![Howler.js](https://img.shields.io/badge/howler.js-4FC08D?style=for-the-badge&logo=howler.js&logoColor=white)
-  ![Web Socket](https://img.shields.io/badge/Web%20Socket-010101?style=for-the-badge&logo=socketdotio&logoColor=white)
+  ![Web Socket](https://img.shields.io/badge/StompJS-010101?style=for-the-badge&logo=socketdotio&logoColor=white)
 
 - **Backend**
 
