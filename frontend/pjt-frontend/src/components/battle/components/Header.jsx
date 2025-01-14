@@ -1,5 +1,5 @@
 import "../../../css/Header.css";
-import Setting from "./Setting";
+import Setting from "./Setting.jsx";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useState } from "react";
 import { MdOutlineKeyboardBackspace } from "react-icons/md";

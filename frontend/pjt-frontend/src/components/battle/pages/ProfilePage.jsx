@@ -1,5 +1,5 @@
 import "../../../css/ProfilePage.css";
-import Header from "../components/Header";
+import Header from "../components/Header.jsx";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import store from "../../../store/store.js";
@@ -124,11 +124,11 @@ function ProfilePage() {
                   SOLVED
                 </button>
                 <button
-                className="custom-button"
-                onClick={() => navigate("/_report")}
-              >
-                REPORT
-              </button>
+                  className="custom-button"
+                  onClick={() => navigate("/_report")}
+                >
+                  REPORT
+                </button>
               </div>
             </div>
           </div>
